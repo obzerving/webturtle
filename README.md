@@ -1,18 +1,18 @@
-WebTurtle
+# WebTurtle
 
 An ESP8266 version of the Arduino Drawing Robot (http://www.instructables.com/id/Arduino-Drawing-Robot/)
 allowing control via WiFi and storage of logo procedures in its own (SPIFFS) file system.
 
-Hardware used:
+## Hardware used:
 - See the original instructable. Instead of an Arduino UNO, a NodeMCU is used
   (https://www.amazon.com/HiLetgo-Version-NodeMCU-Internet-Development/dp/B010O1G1ES)
 - 4 AA batteries with holder
 - You'll also need a WiFi enabled computer capable of displaying web pages to control the robot
 
-Software used:
+## Software used:
 - Arduino development environment for ESP8266
 
-Work Flow
+## Work Flow
 
 1. Install the development environment (see https://github.com/esp8266/Arduino). I used
    version 1.6.11 in this project.
@@ -65,27 +65,29 @@ Work Flow
    * pd - Move the pen down
    * rpt 16 - Repeat the commands enclosed in brackets 16 times
    * fd 100 - Move forward 100 mm
-   * lt 90 - Turn lt 90 degrees
+   * lt 90 - Turn left 90 degrees
    * pu - Move the pen up
    
 8. Step 16 of the instructable calibrates the raising and lowering of the pen. As you saw
    previously, you can enter pu for pen up and pd for pen down to control the servo.
    
+## Command Set
+
 The robot implements a very restricted set of logo commands. They are:
-* fd <value> - Move forward <value> mm, where <value> can be integer or decimal
-* bk <value> - Move backward <value> mm, where <value> can be integer or decimal
-* rt <value> - Turn right <value> degrees, where <value> can be integer or decimal
-* lt <value> - Turn left <value> degrees, where <value> can be integer or decimal
+* fd - __value__ - Move forward __value__ mm, where __value__ can be integer or decimal
+* bk - __value__ - Move backward __value__ mm, where __value__ can be integer or decimal
+* rt - __value__ - Turn right __value__ degrees, where __value__ can be integer or decimal
+* lt - __value__ - Turn left __value__ degrees, where __value__ can be integer or decimal
 * pu - Move the pen up
 * pd - Move the pen down
-* rpt <value> [cmd1 cmd2..] - Repeat the bracketed commands <value> times, where <value> is an integer
+* rpt - __value__ [cmd1 cmd2..] - Repeat the bracketed commands __value__ times, where __value__ is an integer
   (e.g. rpt 16 [fd 100 rt 90])
-* to <function_name> <:variable_name1 :variable_name2..> cmd1 cmd2.. end - Define a function
+* to __function_name__ :__variable_name1__ :__variable_name2__.. __cmd1 cmd2__.. end - Define a function
   (e.g to square :side rpt 4 [fd :side rt 90] end)
   (The function is called like this: square 100)
-* file <file_name> - Read input from file <file_name> in the robot's file system
+* file __file_name__ - Read input from file __file_name__ in the robot's file system
     
-Using the robot's file system
+## Using the robot's file system
 
 There is a 500 character limit on the commands that can be entered into the text box. That
 may seem like a lot, but it's not. The ability to upload, list, and delete files is provided
