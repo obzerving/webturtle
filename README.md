@@ -20,7 +20,7 @@ allowing control via WiFi and storage of logo procedures in its own (SPIFFS) fil
    a. set the development board to NodeMCU 1.0 (Tools -> Board -> NodeMCU 1.0 (ESP-12E Module)
    
    b. Upload the contents of the data directory to the module
-     (see https://github.com/esp8266/Arduino/blob/master/doc/filesystem.md#uploading-files-to-file-system)
+     (see https://github.com/esp8266/Arduino/blob/master/doc/filesystem.rst#uploading-files-to-file-system)
 
 2. Load webturtle4.ino into the development environment and change the file accordingly.
    The robot acts as its own wireless access point with the following parameters:
